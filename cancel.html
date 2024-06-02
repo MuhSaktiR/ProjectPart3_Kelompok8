@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="keretaLogoNew.png">
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap4" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title> Pembatalan Pesanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c9302c;
+        }
+        .booking-form {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .site-footer {
+            background-color: #fff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .site-footer .widget {
+            margin-bottom: 30px;
+        }
+
+        .site-footer h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .site-footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .site-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .site-footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .site-footer .social li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .site-footer .social li a {
+            color: #fff;
+            font-size: 20px;
+        }
+        .site-footer {
+        text-align: left;
+        }  
+        .booking-form {
+            width: 500%;
+            max-width: 1250px;
+            padding: 100px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+        margin-bottom: 20px;
+        }
+        label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+        width: 100%;
+        padding: 8px;
+         box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        }
+        button {
+         background-color: #d9534f;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        }
+        button:hover {
+        background-color: #c9302c;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+    
+      <nav class="site-nav">
+        <div class="container">
+          <div class="site-navigation">
+            <a href="utama.html" class="logo m-0">Kereta Kita<span class="text-primary">.</span></a>
+    
+            <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+                <li><a href="utama.html">Home</a></li>
+                <li><a href="booking.html">Book A Train</a></li>
+                <li class="active"><a href="cancel.html">Cancel Order</a></li>
+                <li><a href="jadwal.html">Jadwal</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="index.html">Logout</a></li>
+			    <li><span id="usernamePlaceholder"></span></li>
+            </ul>
+    
+            <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+              <span></span>
+            </a>
+    
+          </div>
+        </div>
+      </nav>
+      
+    <div class="hero hero-inner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mx-auto text-center">
+              <div class="intro-wrap">
+                <h1 class="mb-0">Cancel Order</h1>
+                <p class="text-white">Anda Dapat Melakukan Pembatalan Pembayaran Sebelum 1x24 Jam</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+        <form id="cancelOrderForm" class="booking-form">
+            <div class="form-group">
+                <label for="orderID">Order ID:</label>
+                <input type="text" id="orderID" placeholder="Masukkan Order ID" required>
+            </div>
+            <div class="form-group">
+                <label for="customerName">Nama Pemesan:</label>
+                <input type="text" id="customerName" placeholder="Masukkan Nama Pemesan" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Masukkan Email" required>
+            </div>
+            <div class="form-group">
+                <label for="cancelReason">Alasan Pembatalan:</label>
+                <textarea id="cancelReason" placeholder="Masukkan Alasan Pembatalan" rows="4" required></textarea>
+            </div>
+            <button type="button" onclick="submitCancelForm()">Batalkan Pesanan</button>
+        </form>
+    </div>
+
+    <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget">
+                        <h3 class="heading">About Kereta Kita</h3>
+                        <p></p>
+                    </div>
+                    <div class="widget">
+                        <ul class="list-unstyled social">
+                            <li><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li><a href="#"><span class="icon-instagram"></span></a></li>
+                            <li><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li><a href="#"><span class="icon-google"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 pl-lg-5">
+                    <div class="widget">
+                        <h3 class="heading">Pages</h3>
+                        <ul class="links list-unstyled">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="widget">
+                        <h3 class="heading">Resources</h3>
+                        <ul class="links list-unstyled">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget">
+                        <h3 class="heading">Contact</h3>
+                        <ul class="list-unstyled quick-info links">
+                          <li class="email"><a href="#">keretakita@mail.com</a></li>
+                          <li class="phone"><a href="#">+62 812 8652 9634</a></li>
+                          <li class="address"><a href="#">Universitas Muhammadiyah Yogyakarta Teknologi Informasi</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+      
+      
+              <div class="inner dark">
+                  <div class="container">
+                      <div class="row text-center">
+                          <div class="col-md-8 mb-3 mb-md-0 mx-auto">
+                              <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co" class="link-highlight">Untree.co</a> <!-- License information: https://untree.co/license/ -->Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
+                              </p>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <script>
+            function submitCancelForm() {
+                var orderID = document.getElementById('orderID').value;
+                var customerName = document.getElementById('customerName').value;
+                var email = document.getElementById('email').value;
+                var cancelReason = document.getElementById('cancelReason').value;
+    
+                fetch('url_server_anda', {
+                    method: 'POST',
+                    body: JSON.stringify({ orderID, customerName, email, cancelReason }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu.');
+                })
+                .catch(error => {
+                    console.error('Pesanan telah ditinjau:', error);
+                    alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu');
+                });
+            }
+            function submitCancelForm() {
+                var orderID = document.getElementById('orderID').value.trim(); // Trim whitespace
+                var customerName = document.getElementById('customerName').value;
+                var email = document.getElementById('email').value;
+                var cancelReason = document.getElementById('cancelReason').value;
+
+                // Validasi ID Order
+                if (!/^\d{1,6}$/.test(orderID)) {
+                alert('ID Order harus berupa angka dan maksimal 6 digit.');
+                return;
+                }
+
+            fetch('url_server_anda', {
+            method: 'POST',
+            body: JSON.stringify({ orderID, customerName, email, cancelReason }),
+             headers: {
+            'Content-Type': 'application/json'
+            }
+                })
+            .then(response => response.json())
+            .then(data => {
+            alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu.');
+            })
+             .catch(error => {
+             console.error('Pesanan telah ditinjau:', error);
+             alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu');
+            });
+            }
+            function submitCancelForm() {
+    var orderID = document.getElementById('orderID').value.trim();
+    var customerName = document.getElementById('customerName').value.trim(); // Trim whitespace
+    var email = document.getElementById('email').value;
+    var cancelReason = document.getElementById('cancelReason').value;
+
+    // Validasi ID Order
+    if (!/^\d{1,6}$/.test(orderID)) {
+        alert('ID Order harus berupa angka dan maksimal 6 digit.');
+        return;
+    }
+
+    // Validasi nama pemesan
+    if (!/^[a-zA-Z]+$/.test(customerName)) {
+        alert('Nama pemesan hanya boleh berisi huruf.');
+        return;
+    }
+
+    fetch('url_server_anda', {
+        method: 'POST',
+        body: JSON.stringify({ orderID, customerName, email, cancelReason }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu.');
+    })
+    .catch(error => {
+        console.error('Pesanan telah ditinjau:', error);
+        alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu');
+    });
+}
+function submitCancelForm() {
+    var orderID = document.getElementById('orderID').value.trim();
+    var customerName = document.getElementById('customerName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var cancelReason = document.getElementById('cancelReason').value.trim();
+
+    // Validasi ID Order
+    if (!/^\d{1,6}$/.test(orderID)) {
+        alert('ID Order harus berupa angka dan maksimal 6 digit.');
+        return;
+    }
+
+    // Validasi nama pemesan
+    if (!/^[a-zA-Z ]+$/.test(customerName)) {
+        alert('Nama pemesan hanya boleh berisi huruf.');
+        return;
+    }
+
+    // Validasi email
+    if (!validateEmail(email)) {
+        alert('Email tidak valid.');
+        return;
+    }
+
+    fetch('url_server_anda', {
+        method: 'POST',
+        body: JSON.stringify({ orderID, customerName, email, cancelReason }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu.');
+    })
+    .catch(error => {
+        console.error('Pesanan telah ditinjau:', error);
+        alert('Pesanan telah ditinjau lebih lanjut. Harap tunggu');
+    });
+}
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+        </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        
+        if (loggedInUser) {
+            usernamePlaceholder.textContent = ''+ loggedInUser;
+        }
+    });
+</script>
+
+</body>
+</html>
+      
+          
+                   

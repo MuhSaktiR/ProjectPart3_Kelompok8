@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="keretaLogoNew.png">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap4" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="css/daterangepicker.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>Kereta Kita Website Indonesia</title>
+    <script>
+        const keretaData = [
+           // Jakarta ke Surabaya
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-05 08:00', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-10 16:05', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-16 00:01', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-20 08:00', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-25 16:20', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Bromo Anggrek', jadwal: '2024-06-30 00:05', stasiunAsal: 'Jakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            // Surabaya ke Jakarta
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-01 09:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-04 18:20', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-09 03:35', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-12 12:05', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-16 09:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-24 18:20', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '789012', namaKereta: 'Pandalungan', jadwal: '2024-06-28 03:35', stasiunAsal: 'Surabaya', stasiunTujuan: 'Jakarta', tersedia: true },
+            // Malang ke Jakarta
+            { noBooking: '345678', namaKereta: 'Gajayana', jadwal: '2024-06-07 20:05', stasiunAsal: 'Malang', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '345678', namaKereta: 'Gajayana', jadwal: '2024-06-14 20:05', stasiunAsal: 'Malang', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '345678', namaKereta: 'Gajayana', jadwal: '2024-06-17 10:00', stasiunAsal: 'Malang', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '345678', namaKereta: 'Gajayana', jadwal: '2024-06-27 20:50', stasiunAsal: 'Malang', stasiunTujuan: 'Jakarta', tersedia: true },
+            // malang ke jogja
+            { noBooking: '135791', namaKereta: 'Sritanjung', jadwal: '2024-06-02 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Sritanjung', jadwal: '2024-06-09 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Sritanjung', jadwal: '2024-06-16 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Sritanjung', jadwal: '2024-06-23 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Sritanjung', jadwal: '2024-06-30 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            // malang ke semarang
+            { noBooking: '135792', namaKereta: 'Sembrani', jadwal: '2024-06-05 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Sembrani', jadwal: '2024-06-12 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Sembrani', jadwal: '2024-06-19 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Sembrani', jadwal: '2024-06-26 08:00', stasiunAsal: 'Malang', stasiunTujuan: 'Semarang', tersedia: true },
+            //malang ke bandung
+            { noBooking: '246801', namaKereta: 'Cirebon Express', jadwal: '2024-06-02 09:30', stasiunAsal: 'Malang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Cirebon Express', jadwal: '2024-06-09 09:30', stasiunAsal: 'Malang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Cirebon Express', jadwal: '2024-06-16 09:30', stasiunAsal: 'Malang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Cirebon Express', jadwal: '2024-06-23 09:30', stasiunAsal: 'Malang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Cirebon Express', jadwal: '2024-06-30 09:30', stasiunAsal: 'Malang', stasiunTujuan: 'Bandung', tersedia: true },
+            //malang ke surabaya!
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-03 06:00', stasiunAsal: 'Malang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-10 06:00', stasiunAsal: 'Malang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-17 06:00', stasiunAsal: 'Malang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-24 06:00', stasiunAsal: 'Malang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-29 06:00', stasiunAsal: 'Malang', stasiunTujuan: 'Surabaya', tersedia: true },
+            // Yogyakarta ke Bandung!
+            { noBooking: '654321', namaKereta: 'Malioboro Express', jadwal: '2024-06-03 10:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Malioboro Express', jadwal: '2024-06-10 20:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Malioboro Express', jadwal: '2024-06-17 10:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Malioboro Express', jadwal: '2024-06-24 20:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            // jogja ke jakarta
+            { noBooking: '246810', namaKereta: 'Merapi Express', jadwal: '2024-06-08 11:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Merapi Express', jadwal: '2024-06-13 13:30', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Merapi Express', jadwal: '2024-06-18 11:45', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Merapi Express', jadwal: '2024-06-23 14:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Merapi Express', jadwal: '2024-06-28 12:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Jakarta', tersedia: true },
+            //jogja ke malang
+            { noBooking: '246810', namaKereta: 'Taksaka Malam', jadwal: '2024-06-07 08:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Taksaka Malam', jadwal: '2024-06-14 10:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Taksaka Malam', jadwal: '2024-06-21 09:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Taksaka Malam', jadwal: '2024-06-28 11:30', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Malang', tersedia: true },
+            //jogja ke semarang
+            { noBooking: '246810', namaKereta: 'Sembrani', jadwal: '2024-06-02 07:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Sembrani', jadwal: '2024-06-09 09:30', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Sembrani', jadwal: '2024-06-16 08:15', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Sembrani', jadwal: '2024-06-23 10:45', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246810', namaKereta: 'Sembrani', jadwal: '2024-06-30 08:30', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            //jogja ke surabaya
+            { noBooking: '246801', namaKereta: 'Sancaka ', jadwal: '2024-06-03 06:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka ', jadwal: '2024-06-10 06:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka ', jadwal: '2024-06-17 06:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka ', jadwal: '2024-06-24 06:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka ', jadwal: '2024-06-29 06:00', stasiunAsal: 'Yogyakarta', stasiunTujuan: 'Surabaya', tersedia: true },
+            //Bandung ke surabaya
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-08 07:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-11 07:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-19 07:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-28 07:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Surabaya', tersedia: true },
+            //bandung ke jakarta
+            { noBooking: '135790', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-05 07:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '135790', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-12 07:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '135790', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-19 07:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '135790', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-26 07:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Jakarta', tersedia: true },
+            // bandung ke semarang
+            { noBooking: '246801', namaKereta: 'Sembrani', jadwal: '2024-06-04 08:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sembrani', jadwal: '2024-06-11 08:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sembrani', jadwal: '2024-06-18 08:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sembrani', jadwal: '2024-06-25 08:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Semarang', tersedia: true },
+            //bandung ke jogja!
+            { noBooking: '135792', namaKereta: 'Argo Lawu', jadwal: '2024-06-03 09:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Argo Lawu', jadwal: '2024-06-10 09:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Argo Lawu', jadwal: '2024-06-17 09:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135792', namaKereta: 'Argo Lawu', jadwal: '2024-06-24 09:00', stasiunAsal: 'Bandung', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            //bandung ke malang!
+            { noBooking: '654321', namaKereta: 'Bima', jadwal: '2024-06-03 08:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Bima', jadwal: '2024-06-10 08:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Bima', jadwal: '2024-06-17 08:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '654321', namaKereta: 'Bima', jadwal: '2024-06-24 08:30', stasiunAsal: 'Bandung', stasiunTujuan: 'Malang', tersedia: true },
+            // Jakarta ke Semarang
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-07 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-10 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-15 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-21 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-25 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Argo Dwipangga', jadwal: '2024-06-29 07:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Semarang', tersedia: true },
+            // Jakarta ke Malang
+            { noBooking: '135791', namaKereta: 'Malang Express', jadwal: '2024-06-05 09:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Malang Express', jadwal: '2024-06-10 15:45', stasiunAsal: 'Jakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Malang Express', jadwal: '2024-06-15 07:20', stasiunAsal: 'Jakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Malang Express', jadwal: '2024-06-20 13:50', stasiunAsal: 'Jakarta', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Malang Express', jadwal: '2024-06-25 10:15', stasiunAsal: 'Jakarta', stasiunTujuan: 'Malang', tersedia: true },
+            //jakarta ke bandung 
+            { noBooking: '246802', namaKereta: 'Bandung Ekspres', jadwal: '2024-06-06 08:45', stasiunAsal: 'Jakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246802', namaKereta: 'Bandung Ekspres', jadwal: '2024-06-11 13:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246802', namaKereta: 'Bandung Ekspres', jadwal: '2024-06-16 09:15', stasiunAsal: 'Jakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246802', namaKereta: 'Bandung Ekspres', jadwal: '2024-06-21 14:00', stasiunAsal: 'Jakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '246802', namaKereta: 'Bandung Ekspres', jadwal: '2024-06-26 10:45', stasiunAsal: 'Jakarta', stasiunTujuan: 'Bandung', tersedia: true },
+            //jakarta ke jogja
+            { noBooking: '135791', namaKereta: 'Jogja Ekspres', jadwal: '2024-06-07 09:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Jogja Ekspres', jadwal: '2024-06-12 14:15', stasiunAsal: 'Jakarta', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Jogja Ekspres', jadwal: '2024-06-17 10:45', stasiunAsal: 'Jakarta', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Jogja Ekspres', jadwal: '2024-06-22 15:30', stasiunAsal: 'Jakarta', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Jogja Ekspres', jadwal: '2024-06-27 11:00', stasiunAsal: 'Jakarta', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            //surabaya ke jogja!
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-03 06:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-10 06:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-17 06:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Sancaka Pagi', jadwal: '2024-06-24 06:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            //surabaya ke  malang
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-05 08:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-10 16:05', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-16 00:01', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-20 08:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-25 16:20', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Argo Wilis', jadwal: '2024-06-30 00:05', stasiunAsal: 'Surabaya', stasiunTujuan: 'Malang', tersedia: true },
+            //surabaya ke bandung
+            { noBooking: '135791', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-05 07:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-10 15:30', stasiunAsal: 'Surabaya', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-17 06:45', stasiunAsal: 'Surabaya', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '135791', namaKereta: 'Argo Parahyangan', jadwal: '2024-06-24 14:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Bandung', tersedia: true },
+            //surabaya ke semaraang
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-06 09:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-13 16:30', stasiunAsal: 'Surabaya', stasiunTujuan: 'Semarang', tersedia: true },
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-20 08:00', stasiunAsal: 'Surabaya', stasiunTujuan: 'Semarang', tersedia: true },
+            // semarang ke jakarta
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-06 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-13 09:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Jakarta', tersedia: true },
+            { noBooking: '753159', namaKereta: 'Bima', jadwal: '2024-06-20 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Jakarta', tersedia: true },
+            // semarang ke jogja
+            { noBooking: '987654', namaKereta: 'Merapi', jadwal: '2024-06-06 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Merapi', jadwal: '2024-06-13 09:45', stasiunAsal: 'Semarang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Merapi', jadwal: '2024-06-20 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Yogyakarta', tersedia: true },
+            // semarang ke malang
+            { noBooking: '246801', namaKereta: 'Brawijaya', jadwal: '2024-06-04 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Brawijaya', jadwal: '2024-06-11 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Brawijaya', jadwal: '2024-06-18 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Malang', tersedia: true },
+            { noBooking: '246801', namaKereta: 'Brawijaya', jadwal: '2024-06-25 08:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Malang', tersedia: true },
+            // semarang ke surabaya
+            { noBooking: '123456', namaKereta: 'Majapahit', jadwal: '2024-06-05 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '234567', namaKereta: 'Bima', jadwal: '2024-06-10 10:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '345678', namaKereta: 'Gajayana', jadwal: '2024-06-15 12:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '456789', namaKereta: 'Malioboro Express', jadwal: '2024-06-20 14:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '567890', namaKereta: 'Taksaka', jadwal: '2024-06-25 16:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            { noBooking: '678901', namaKereta: 'Majapahit', jadwal: '2024-06-30 18:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Surabaya', tersedia: true },
+            // semarang ke bandung
+            { noBooking: '123456', namaKereta: 'Majapahit', jadwal: '2024-06-05 07:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Majapahit', jadwal: '2024-06-12 07:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Majapahit', jadwal: '2024-06-19 07:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '123456', namaKereta: 'Majapahit', jadwal: '2024-06-26 07:30', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Turangga', jadwal: '2024-06-07 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Turangga', jadwal: '2024-06-14 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Turangga', jadwal: '2024-06-21 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true },
+            { noBooking: '987654', namaKereta: 'Turangga', jadwal: '2024-06-28 08:00', stasiunAsal: 'Semarang', stasiunTujuan: 'Bandung', tersedia: true }
+        ];
+
+        function filterKereta() {
+            const asal = document.getElementById('asal').value;
+            const tujuan = document.getElementById('tujuan').value;
+            const periode = document.getElementById('periode').value;
+
+            if (asal === '' || tujuan === '' || periode === '') {
+                alert('Mohon lengkapi stasiun keberangkatan, tujuan, dan periode!');
+                return;
+            }
+
+            const today = new Date();
+            const endDate = new Date(today);
+            endDate.setDate(today.getDate() + (periode * 7));
+            const startDate = new Date(today);
+            startDate.setDate(today.getDate() + (periode * 7) - 6);
+
+            const hasil = keretaData.filter(kereta =>
+                kereta.stasiunAsal === asal &&
+                kereta.stasiunTujuan === tujuan &&
+                new Date(kereta.jadwal) >= startDate &&
+                new Date(kereta.jadwal) <= endDate &&
+                kereta.tersedia
+            );
+
+            const tbody = document.getElementById('hasilPencarian');
+            tbody.innerHTML = '';
+
+            if (hasil.length === 0) {
+                const row = `<tr><td colspan="6">Tidak ada kereta tersedia untuk rute dan periode yang dipilih.</td></tr>`;
+                tbody.innerHTML = row;
+            } else {
+                hasil.forEach(kereta => {
+                    const row = `<tr>
+                                    <td>${kereta.noBooking}</td>
+                                    <td>${kereta.namaKereta}</td>
+                                    <td>${kereta.jadwal}</td>
+                                    <td>${kereta.stasiunAsal}</td>
+                                    <td>${kereta.stasiunTujuan}</td>
+                                    <td>${new Date(kereta.jadwal).toLocaleTimeString()}</td>
+                                </tr>`;
+                    tbody.innerHTML += row;
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="site-navigation">
+				<a href="utama.html" class="logo m-0">Kereta Kita<span class="text-primary">.</span></a>
+
+				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+					<li><a href="utama.html">Home</a></li>
+					<li><a href="booking.html">Book A Train</a></li>
+					<li><a href="cancel.html">Cancel Order</a></li>
+                    <li class="active"><a href="jadwal.html">Jadwal</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="index.html">Logout</a></li>
+					<li><span id="usernamePlaceholder"></span></li>
+				</ul>
+
+				<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+					<span></span>
+				</a>
+			</div>
+		</div>
+	</nav>
+
+    <div class="hero hero-inner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mx-auto text-center">
+              <div class="intro-wrap">
+                <h1 class="mb-0">Jadwal Kereta</h1>
+                <p class="text-white">Berikut Jadwal Kereta yang tersedia, silahkan lihat kereta Anda!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Jadwal Kereta</h1>
+
+        <div class="form-group">
+            <label for="asal">Stasiun Keberangkatan:</label>
+            <select id="asal" class="form-control" onchange="updateTujuan()">
+                <option value="">Pilih Stasiun Keberangkatan</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+                <option value="Malang">Malang</option>
+                <option value="Bandung">Bandung</option>
+                <option value="Semarang">Semarang</option>
+                <option value="Surabaya">Surabaya</option>
+                <!-- Tambah stasiun lainnya jika perlu -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="tujuan">Stasiun Tujuan:</label>
+            <select id="tujuan" class="form-control">
+                <option value="">Pilih Stasiun Tujuan</option>
+                <!-- Pilihan stasiun tujuan akan diisi oleh JavaScript -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="periode">Periode Pencarian (Minggu):</label>
+            <select id="periode" class="form-control">
+                <option value="">Pilih Periode Pencarian</option>
+                <option value="0">Hari ini</option>
+                <option value="-1">Minggu Lalu</option>
+                <option value="1">Minggu Depan</option>
+                <!-- Menambahkan opsi lain jika diperlukan -->
+            </select>
+        </div>
+
+        <button class="btn btn-primary" onclick="filterKereta()">Cari Jadwal Kereta</button>
+
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>No Booking</th>
+                    <th>Nama Kereta</th>
+                    <th>Jadwal</th>
+                    <th>Stasiun Keberangkatan</th>
+                    <th>Stasiun Tujuan</th>
+                    <th>Waktu Keberangkatan</th>
+                </tr>
+            </thead>
+            <tbody id="hasilPencarian">
+                <!-- Hasil pencarian akan muncul di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="site-footer">
+		<div class="inner first">
+		  <div class="container">
+			<div class="row">
+			  <div class="col-md-6 col-lg-4">
+				<div class="widget">
+				  <h3 class="heading">About Kereta Kita</h3>
+				  <p></p>
+				</div>
+				<div class="widget">
+				  <ul class="list-unstyled social">
+					<li><a href="#"><span class="icon-twitter"></span></a></li>
+					<li><a href="#"><span class="icon-instagram"></span></a></li>
+					<li><a href="#"><span class="icon-facebook"></span></a></li>
+					<li><a href="#"><span class="icon-google"></span></a></li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-6 col-lg-2 pl-lg-5">
+				<div class="widget">
+				  <h3 class="heading">Pages</h3>
+				  <ul class="links list-unstyled">
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-6 col-lg-2">
+				<div class="widget">
+				  <h3 class="heading">Resources</h3>
+				  <ul class="links list-unstyled">
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				  </ul>
+				</div>
+			  </div>
+			  <div class="col-md-6 col-lg-4">
+				<div class="widget">
+				  <h3 class="heading">Contact</h3>
+				  <ul class="list-unstyled quick-info links">
+					<li class="email"><a href="#">keretakita@mail.com</a></li>
+					<li class="phone"><a href="#">+62 812 8652 9634</a></li>
+					<li class="address"><a href="#">Universitas Muhammadiyah Yogyakarta Teknologi Informasi</a></li>
+				  </ul>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+
+		<div class="inner dark">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8 mb-3 mb-md-0 mx-auto">
+						<p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co" class="link-highlight">Untree.co</a> <!-- License information: https://untree.co/license/ -->Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function updateTujuan() {
+            const asal = document.getElementById('asal').value;
+            const tujuanSelect = document.getElementById('tujuan');
+    
+            // Kosongkan pilihan stasiun tujuan
+            tujuanSelect.innerHTML = '';
+    
+            // Tambahkan pilihan stasiun tujuan berdasarkan stasiun keberangkatan yang dipilih
+            const tujuanOptions = ['Pilihan Stasiun Kedatangan','Jakarta', 'Yogyakarta', 'Malang', 'Bandung', 'Semarang', 'Surabaya'];
+            tujuanOptions.forEach(stasiun => {
+                if (stasiun !== asal) {
+                    const option = document.createElement('option');
+                    option.value = stasiun;
+                    option.textContent = stasiun;
+                    tujuanSelect.appendChild(option);
+                }
+            });
+        }
+    
+        // Panggil fungsi updateTujuan untuk menginisialisasi pilihan stasiun tujuan
+        updateTujuan();
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        
+        if (loggedInUser) {
+            usernamePlaceholder.textContent = ''+ loggedInUser;
+        }
+    });
+</script>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.querySelector('.loader');
+    const overlayer = document.getElementById('overlayer');
+    if (loader) {
+        loader.style.display = 'none';
+    }
+    if (overlayer) {
+        overlayer.style.display = 'none';
+    }
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #c9effe;
+
+            
+        }
+        .container {
+            background-color: rgb(5, 4, 4);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+
+            border: 0.4px solid #000000;
+            background-color: rgba(0, 0, 0, 0.1);
+
+            position: absolute;
+            margin: 125px 555px ;
+            width: 400px;
+            height: 510px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.253);
+            backdrop-filter: blur(9px);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .toggle-link a {
+            color: #007BFF;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        img.img1 {
+            border-radius: 100px;
+            width: 130px;
+            height: 130px;
+            transition: 0.5s ease;
+            margin-top: 10px;
+            filter: invert(100%);
+        }
+
+        img.img1:hover {
+            width: 140px;
+            height: 140px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <div class="img-container">
+            <img class="img1" src="https://github.com/SulemanSadat/LoginWebPage/blob/main/user.png?raw=true" alt="Photo">
+        </div>
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" required>
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+        </div>
+        <div class="form-group">
+            <button onclick="login()">Login</button>
+        </div><br>
+
+        <div class="toggle-link">
+            <a onclick="showRegister()">Don't have an account? Register here</a>
+        </div>
+    </div>
+
+    <div class="container" id="register-container" style="display:none;">
+        <h2>REGISTRASI</h2>
+        <form onsubmit="return register()">
+            <div class="form-group">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="register-notlpn">No.telepon</label>
+                <input type="tel" id="register-notlpn" required minlength="14" pattern="[0-9]+">
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="register-nik">NIK</label>
+                <input type="text" id="nik" required minlength="16">
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <div class="toggle-link">
+            <a onclick="showLogin()">Already have an account? Login here</a>
+        </div>
+    </div>
+    
+    <script>
+        function showRegister() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('login-container').style.display = 'block';
+            document.getElementById('register-container').style.display = 'none';
+        }
+
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const storedUser = localStorage.getItem(username);
+
+         if (storedUser && storedUser === password) {
+            alert('Login successful!');
+            localStorage.setItem('loggedInUser', username); // Simpan nama pengguna yang berhasil login
+            window.location.href = 'utama.html';
+        } else {
+            alert('Invalid username or password.');
+        }
+    }    
+        function showLogin() {
+            document.getElementById('login-container').style.display = 'block';
+            document.getElementById('register-container').style.display = 'none';
+        }
+    
+        function register() {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            const notlpn = document.getElementById('register-notlpn').value;
+            const email = document.getElementById('register-email').value;
+            const nik = document.getElementById('nik').value;
+    
+            // Validasi input
+            if (username.trim() === '') {
+                alert('Harap isi username.');
+                return false;
+            }
+            if (password.trim() === '') {
+                alert('Harap isi password.');
+                return false;
+            }
+            if (notlpn.trim() === '') {
+                alert('Harap isi nomor telepon.');
+                return false;
+            }
+            if (email.trim() === '') {
+                alert('Harap isi email.');
+                return false;
+            }
+            if (nik.trim() === '') {
+                alert('Harap isi NIK.');
+                return false;
+            }
+    
+            // Validasi panjang input
+            if (username.length < 6) {
+                alert('Username harus memiliki minimal 6 karakter.');
+                return false;
+            }
+            if (password.length < 6) {
+                alert('Password harus memiliki minimal 6 karakter.');
+                return false;
+            }
+            if (notlpn.length < 12) {
+                alert('Nomor telepon harus memiliki minimal 14 angka.','wajib angka');
+                return false;
+            }
+            if (email.length < 6) {
+                alert('Email harus memiliki minimal 6 karakter.');
+                return false;
+            }
+            if (nik.length < 16) {
+                alert('NIK harus memiliki minimal 16 karakter.');
+                return false;
+            }
+    
+            // Lakukan pendaftaran jika semua validasi terpenuhi
+            if (localStorage.getItem(username)) {
+                alert('Username already exists.');
+                return false;
+            } else {
+                localStorage.setItem(username, password);
+                alert('Registration successful! You can now log in.');
+                showLogin();
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+    
